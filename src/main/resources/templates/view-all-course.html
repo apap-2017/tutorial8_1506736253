@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View All Course</title>
+    </head>
+    <body>
+        <h2 th:text = " 'Login as ' + ${#httpServletRequest.remoteUser}" > Login as </h2>
+        <form th:action = "@{/logout}" method = "post">
+			<input type = "submit" value = "Sign Out" />
+		</form>
+        <h1>All Course</h1>
+        
+    	<div th:each="course,iterationStatus: ${courses}">
+            <h3 th:text="'No. ' + ${iterationStatus.count}">No. 1</h3>
+	       	<h3 th:text="'Course ID = ' + ${course.course_id}"></h3>
+	       	<h3 th:text="'Course Name = ' + ${course.name}">Student Name</h3>
+	       	<h3 th:text="'Course Credits = ' + ${course.credits}">Student GPA</h3>
+	       	<hr/>
+       	</div>
+    </body>
+</html>
